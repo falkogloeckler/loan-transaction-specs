@@ -1,19 +1,532 @@
-openapi: 3.0.0
-servers:
-  - description: DINA
-    url: https://virtserver.dina-project.net/
 info:
-  description: Transaction API Schema
-  version: "0.1.0"
-  title: Transaction Schema - DRAFT
-  contact:
-    email: dina-aafc@canada.ca
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
 paths:
-  /v1/transaction:
-    $ref: 'transaction.yml#/paths/~1v1~1transaction'
-  /v1/transaction/{Id}:
-    $ref: 'transaction.yml#/paths/~1v1~1transaction~1{Id}'
-    
+  /transaction/api/items/:
+    get:
+      operationId: items_list
+      parameters:
+      - in: query
+        name: page[number]
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      - in: query
+        name: page[size]
+        schema:
+          description: Number of results to return per page.
+          title: Page size
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - items
+    post:
+      operationId: items_create
+      tags:
+      - items
+  /transaction/api/items/{id}/:
+    delete:
+      operationId: items_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - items
+    get:
+      operationId: items_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - items
+    patch:
+      operationId: items_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - items
+    put:
+      operationId: items_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - items
+  /transaction/api/requesters/:
+    get:
+      operationId: requesters_list
+      parameters:
+      - in: query
+        name: page[number]
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      - in: query
+        name: page[size]
+        schema:
+          description: Number of results to return per page.
+          title: Page size
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requesters
+    post:
+      operationId: requesters_create
+      tags:
+      - requesters
+  /transaction/api/requesters/{id}/:
+    delete:
+      operationId: requesters_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this requester.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requesters
+    get:
+      operationId: requesters_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this requester.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requesters
+    patch:
+      operationId: requesters_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this requester.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requesters
+    put:
+      operationId: requesters_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this requester.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requesters
+  /transaction/api/requests/:
+    get:
+      operationId: requests_list
+      parameters:
+      - in: query
+        name: page[number]
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      - in: query
+        name: page[size]
+        schema:
+          description: Number of results to return per page.
+          title: Page size
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requests
+    post:
+      operationId: requests_create
+      tags:
+      - requests
+  /transaction/api/requests/{id}/:
+    delete:
+      operationId: requests_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this request.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requests
+    get:
+      operationId: requests_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this request.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requests
+    patch:
+      operationId: requests_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this request.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requests
+    put:
+      operationId: requests_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this request.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - requests
+  /transaction/api/transactions/:
+    get:
+      operationId: transactions_list
+      parameters:
+      - in: query
+        name: page[number]
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      - in: query
+        name: page[size]
+        schema:
+          description: Number of results to return per page.
+          title: Page size
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - transactions
+    post:
+      operationId: transactions_create
+      tags:
+      - transactions
+  /transaction/api/transactions/{id}/:
+    delete:
+      operationId: transactions_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this transaction.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - transactions
+    get:
+      operationId: transactions_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this transaction.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - transactions
+    patch:
+      operationId: transactions_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this transaction.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - transactions
+    put:
+      operationId: transactions_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this transaction.
+          title: ID
+          type: integer
+      - in: query
+        name: sort
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      - in: query
+        name: filter[search]
+        schema:
+          description: A search term.
+          title: Search
+          type: string
+      tags:
+      - transactions
+servers:
+- url: http://api.demo.dina-project.net/transaction/schema/?format=openapi
